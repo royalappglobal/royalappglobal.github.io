@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Royal App Global – Mobile Apps for Everyday Life</title>
+<meta name="description" content="Royal App Global builds simple, fast and useful mobile apps for users worldwide.">
+<style>
+  :root{
+    --bg:#ffffff; --bg-soft:#f5f7fb; --text:#141821; --muted:#5b6475;
+    --primary:#4f46e5; --primary-2:#06b6d4; --card:#ffffff; --border:#e6e9f0;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0d1017; --bg-soft:#141924; --text:#eef1f7; --muted:#9aa3b5;
+           --card:#171c28; --border:#252c3b; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+       background:var(--bg);color:var(--text);line-height:1.65}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 85%,transparent);
+         backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.1rem}
+  .logo-mark{width:34px;height:34px;border-radius:10px;
+             background:linear-gradient(135deg,var(--primary),var(--primary-2));
+             display:grid;place-items:center;color:#fff;font-weight:800}
+  nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+  nav a{color:var(--muted);font-size:.95rem}
+  nav a:hover{color:var(--text)}
+  @media (max-width:720px){ nav ul{display:none} }
+
+  .hero{padding:110px 0 100px;text-align:center;
+        background:radial-gradient(ellipse at top,color-mix(in srgb,var(--primary) 14%,transparent),transparent 60%)}
+  .badge{display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid var(--border);
+         color:var(--muted);font-size:.85rem;margin-bottom:20px;background:var(--card)}
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;margin:0 0 18px;letter-spacing:-.02em}
+  .grad{background:linear-gradient(90deg,var(--primary),var(--primary-2));
+        -webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{max-width:620px;margin:0 auto 32px;color:var(--muted);font-size:1.1rem}
+  .btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:600}
+  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff}
+  .btn-ghost{border:1px solid var(--border);margin-left:10px}
+
+  section{padding:88px 0}
+  .soft{background:var(--bg-soft)}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .section-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0 12px}
+  .section-head p{color:var(--muted);margin:0}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media (max-width:900px){ .grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:600px){ .grid{grid-template-columns:1fr} }
+  .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px;
+        transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+  .icon{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+        font-size:1.6rem;margin-bottom:16px;background:var(--bg-soft)}
+  .card h3{margin:0 0 8px;font-size:1.15rem}
+  .card p{margin:0;color:var(--muted);font-size:.95rem}
+
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+  .about h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:0 0 16px}
+  .about p{color:var(--muted)}
+  .about-visual{aspect-ratio:4/3;border-radius:24px;
+                background:linear-gradient(135deg,var(--primary),var(--primary-2));
+                display:grid;place-items:center;color:#fff;font-size:4rem}
+  @media (max-width:800px){ .about{grid-template-columns:1fr} }
+
+  .contact{text-align:center;background:linear-gradient(135deg,var(--primary),var(--primary-2));
+           color:#fff;border-radius:24px;padding:56px 24px}
+  .contact h2{margin:0 0 12px;font-size:clamp(1.6rem,3.5vw,2.2rem)}
+  .contact p{opacity:.9;margin:0 0 26px}
+  .contact .btn{background:#fff;color:var(--primary)}
+
+  footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .foot a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo"><span class="logo-mark">R</span> Royal App Global</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#why">Why Us</a></li>
+        <li><a href="https://docs.google.com/document/d/e/2PACX-1vQ5ShrIhLAGNC9n2qhBDy32hU_7sJ7TWBqFuJJ5Bzdkw0zj3t7XtG-YT6WPxst3_49yiS8gkouzZUZg/pub" target="_blank" rel="noopener">Privacy Policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <span class="badge">🚀 Independent mobile app studio</span>
+    <h1>Simple apps that make<br><span class="grad">everyday life better</span></h1>
+    <p>Royal App Global designs and builds fast, lightweight and easy-to-use mobile apps for users all around the world.</p>
+    <a href="#about" class="btn btn-primary">About us</a>
+    <a href="#contact" class="btn btn-ghost">Contact us</a>
+  </div>
+</div>
+
+<section id="about" class="soft">
+  <div class="container about">
+    <div>
+      <h2>About Royal App Global</h2>
+      <p>We are a small, passionate team of designers and engineers who believe great software should be simple. Every app we release is focused on solving one real problem — and solving it well.</p>
+      <p>From the first sketch to the final release, we care about performance, privacy and a delightful user experience. We listen to our users and continuously improve our products with every update.</p>
+    </div>
+    <div class="about-visual">📱</div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="section-head">
+      <h2>Why users choose us</h2>
+      <p>Quality and trust are at the heart of everything we build.</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="icon">⚡</div><h3>Fast &amp; Lightweight</h3><p>Optimized to run smoothly on all devices, even older phones.</p></div>
+      <div class="card"><div class="icon">🔒</div><h3>Privacy First</h3><p>We collect only what is necessary and never sell your personal data.</p></div>
+      <div class="card"><div class="icon">✨</div><h3>Beautiful Design</h3><p>Clean, modern interfaces that anyone can use without a manual.</p></div>
+      <div class="card"><div class="icon">🔄</div><h3>Regular Updates</h3><p>New features and improvements delivered based on your feedback.</p></div>
+      <div class="card"><div class="icon">🌍</div><h3>Global Reach</h3><p>Localized experiences for users in many languages and regions.</p></div>
+      <div class="card"><div class="icon">💬</div><h3>Friendly Support</h3><p>Questions or ideas? Our team is always happy to help.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding-top:0">
+  <div class="container">
+    <div class="contact">
+      <h2>Let's get in touch</h2>
+      <p>Feedback, partnership or support — we'd love to hear from you.</p>
+      <a href="mailto:naseemmai285@gmail.com" class="btn">naseemmai285@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot">
+    <span>© 2026 Royal App Global. All rights reserved.</span>
+    <span>
+      <a href="https://docs.google.com/document/d/e/2PACX-1vQ5ShrIhLAGNC9n2qhBDy32hU_7sJ7TWBqFuJJ5Bzdkw0zj3t7XtG-YT6WPxst3_49yiS8gkouzZUZg/pub" target="_blank" rel="noopener">Privacy Policy</a>
+      · <a href="#contact">Contact</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
